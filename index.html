@@ -393,11 +393,70 @@ SMALL MOBILE
 ```
 
 }
+        /* Hamburger icon */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 28px;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 14px;
+    border-radius: 8px;
+    z-index: 2000;
+    cursor: pointer;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+
+/* Mobile / Tablet */
+@media screen and (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .menu {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        height: 100%;
+        width: 250px;
+        transition: 0.3s ease;
+        z-index: 1000;
+    }
+
+    .menu.open {
+        left: 0;
+    }
+
+    .overlay.show {
+        display: block;
+    }
+}
 
     </style>
 </head>
 <body>
     <!-- Left Menu -->
+    <!-- Hamburger Button -->
+<div class="hamburger" onclick="toggleMenu()">
+    ☰
+</div>
+
+<!-- Overlay -->
+<div class="overlay" onclick="toggleMenu()"></div>
     <div class="menu">
         <div class="menu-name">conversionPdf</div>
         <a href="#" class="menu-item active" onclick="showSection('image-to-pdf')">📸 Image to PDF</a>
@@ -574,6 +633,13 @@ SMALL MOBILE
             };
             reader.readAsArrayBuffer(uploadedPdf);
         }
+        function toggleMenu() {
+    const menu = document.querySelector('.menu');
+    const overlay = document.querySelector('.overlay');
+
+    menu.classList.toggle('open');
+    overlay.classList.toggle('show');
+}
     </script>
 </body>
 </html>
