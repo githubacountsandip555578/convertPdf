@@ -535,7 +535,7 @@ SMALL MOBILE
 
             const reader = new FileReader();
             reader.onload = async function(e) {
-                const pdfData = e.target.data;
+                const pdfData = new Uint8Array(e.target.result);
                 const pdf = await pdfjsLib.getDocument(pdfData).promise;
                 const numPages = pdf.numPages;
                 
