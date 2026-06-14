@@ -282,12 +282,14 @@ MOBILE RESPONSIVE
 
 ```
 .menu {
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -260px;
+    height: 100%;
+    width: 250px;
+    transition: 0.3s ease;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.3); /* optional but recommended */
 }
 
 .menu-name {
@@ -449,8 +451,7 @@ SMALL MOBILE
     </style>
 </head>
 <body>
-    <!-- Left Menu -->
-    <div class="hamburger" onclick="toggleMenu()">
+  <div class="hamburger" onclick="toggleMenu()">
     ☰
 </div>
 
@@ -460,12 +461,6 @@ SMALL MOBILE
   
     <div class="menu">
           <!-- Hamburger Button -->
-<div class="hamburger" onclick="toggleMenu()">
-    ☰
-</div>
-
-<!-- Overlay -->
-<div class="overlay" onclick="toggleMenu()"></div>
         <div class="menu-name">conversionPdf</div>
         <a href="#" class="menu-item active" onclick="showSection('image-to-pdf')">📸 Image to PDF</a>
         <a href="#" class="menu-item" onclick="showSection('pdf-to-image')">📄 PDF to Image</a>
